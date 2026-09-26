@@ -1,0 +1,9 @@
+{
+  "default": "success",
+  "events": {
+    "tenant-a/main/phase6-retry-1": ["503", "success"],
+    "tenant-a/main/phase6-fail-1": ["422"],
+    "demo-tenant/main/demo-provider-retry": ["503", "success"],
+    "demo-tenant/main/demo-provider-fail": ["422"]
+  }
+}
