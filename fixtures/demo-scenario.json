@@ -1,0 +1,362 @@
+{
+  "phase1": [
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-alpha-v1",
+        "externalJobId": "alpha",
+        "version": 1,
+        "operation": "upsert",
+        "payload": {
+          "title": "Alpha One",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 1,
+          "experienceMax": 3,
+          "applyUrl": "https://example.test/jobs/alpha",
+          "skills": ["TypeScript"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-alpha-v3",
+        "externalJobId": "alpha",
+        "version": 3,
+        "operation": "upsert",
+        "payload": {
+          "title": "Alpha Three",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 1,
+          "experienceMax": 3,
+          "applyUrl": "https://example.test/jobs/alpha",
+          "skills": ["TypeScript", "MongoDB"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-beta-v1",
+        "externalJobId": "beta",
+        "version": 1,
+        "operation": "upsert",
+        "payload": {
+          "title": "Beta One",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 0,
+          "experienceMax": 2,
+          "applyUrl": "https://example.test/jobs/beta",
+          "skills": ["Node.js"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-provider-retry",
+        "externalJobId": "retry-job",
+        "version": 1,
+        "operation": "upsert",
+        "payload": {
+          "title": "Retry Job",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 1,
+          "experienceMax": 3,
+          "applyUrl": "https://example.test/jobs/retry",
+          "skills": ["TypeScript"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-provider-fail",
+        "externalJobId": "failed-job",
+        "version": 1,
+        "operation": "upsert",
+        "payload": {
+          "title": "Rejected Job",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 1,
+          "experienceMax": 3,
+          "applyUrl": "https://example.test/jobs/fail",
+          "skills": ["TypeScript"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-gamma-archive-v2",
+        "externalJobId": "gamma",
+        "version": 2,
+        "operation": "archive"
+      }
+    },
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-gamma-upsert-v1",
+        "externalJobId": "gamma",
+        "version": 1,
+        "operation": "upsert",
+        "payload": {
+          "title": "Old Gamma",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 1,
+          "experienceMax": 3,
+          "applyUrl": "https://example.test/jobs/gamma",
+          "skills": ["MongoDB"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-other-tenant",
+        "sourceId": "main",
+        "eventId": "demo-tenant-collision",
+        "externalJobId": "shared",
+        "version": 1,
+        "operation": "upsert",
+        "payload": {
+          "title": "Other Tenant",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 1,
+          "experienceMax": 3,
+          "applyUrl": "https://example.test/jobs/shared",
+          "skills": ["TypeScript"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "secondary",
+        "eventId": "demo-source-collision",
+        "externalJobId": "shared",
+        "version": 1,
+        "operation": "upsert",
+        "payload": {
+          "title": "Other Source",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 1,
+          "experienceMax": 3,
+          "applyUrl": "https://example.test/jobs/shared",
+          "skills": ["TypeScript"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 200,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-alpha-v1",
+        "externalJobId": "alpha",
+        "version": 1,
+        "operation": "upsert",
+        "payload": {
+          "title": "Alpha One",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 1,
+          "experienceMax": 3,
+          "applyUrl": "https://example.test/jobs/alpha",
+          "skills": ["TypeScript"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 409,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-alpha-v3",
+        "externalJobId": "alpha",
+        "version": 3,
+        "operation": "upsert",
+        "payload": {
+          "title": "Conflicting Alpha",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 1,
+          "experienceMax": 3,
+          "applyUrl": "https://example.test/jobs/alpha",
+          "skills": ["TypeScript", "MongoDB"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 400,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": " demo-invalid-id ",
+        "externalJobId": "invalid",
+        "version": 1,
+        "operation": "archive"
+      }
+    },
+    {
+      "expectedStatus": 400,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-invalid-range",
+        "externalJobId": "invalid",
+        "version": 1,
+        "operation": "upsert",
+        "payload": {
+          "title": "Invalid",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 4,
+          "experienceMax": 3,
+          "applyUrl": "https://example.test/jobs/invalid",
+          "skills": ["TypeScript"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 400,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-invalid-archive",
+        "externalJobId": "invalid",
+        "version": 1,
+        "operation": "archive",
+        "payload": { "title": "Must be rejected" }
+      }
+    },
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-delta-v1",
+        "externalJobId": "delta",
+        "version": 1,
+        "operation": "upsert",
+        "payload": {
+          "title": "Delta",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 1,
+          "experienceMax": 3,
+          "applyUrl": "https://example.test/jobs/delta",
+          "skills": ["TypeScript"]
+        }
+      }
+    }
+  ],
+  "phase2": [
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-alpha-v2",
+        "externalJobId": "alpha",
+        "version": 2,
+        "operation": "upsert",
+        "payload": {
+          "title": "Alpha Two",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 1,
+          "experienceMax": 3,
+          "applyUrl": "https://example.test/jobs/alpha",
+          "skills": ["TypeScript"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-alpha-archive-v4",
+        "externalJobId": "alpha",
+        "version": 4,
+        "operation": "archive"
+      }
+    },
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-alpha-delayed-v3",
+        "externalJobId": "alpha",
+        "version": 3,
+        "operation": "upsert",
+        "payload": {
+          "title": "Delayed Alpha",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 1,
+          "experienceMax": 3,
+          "applyUrl": "https://example.test/jobs/alpha",
+          "skills": ["MongoDB"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-beta-v2",
+        "externalJobId": "beta",
+        "version": 2,
+        "operation": "upsert",
+        "payload": {
+          "title": "Beta Two",
+          "company": "Example Labs",
+          "location": "Surat",
+          "experienceMin": 0,
+          "experienceMax": 2,
+          "applyUrl": "https://example.test/jobs/beta",
+          "skills": ["Node.js", "MongoDB"]
+        }
+      }
+    },
+    {
+      "expectedStatus": 202,
+      "body": {
+        "tenantId": "demo-tenant",
+        "sourceId": "main",
+        "eventId": "demo-beta-archive-v3",
+        "externalJobId": "beta",
+        "version": 3,
+        "operation": "archive"
+      }
+    }
+  ]
+}
