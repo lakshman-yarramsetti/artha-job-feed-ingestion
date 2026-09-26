@@ -23,7 +23,7 @@ A 5,000 events/sec burst is 43.2 million events if it lasts a full day; it canno
 
 At 6,000/sec, the system has 1,000/sec headroom and can sustain a 5,000/sec burst indefinitely under those assumptions. At a smaller 1,000/sec deployment, the deficit is 4,000/sec. A five-minute burst creates 1.2 million queued events. Once arrivals fall away, 1,000/sec of spare drain capacity clears that backlog in 1,200 seconds (20 minutes), missing the five-minute processing target. To clear that five-minute burst backlog in five minutes after the burst, capacity needs the normal arrival rate plus 4,000/sec of drain capacity, or roughly 5,000/sec total after the burst; a safety margin is still required.
 
-The current two-loop local configuration is intentionally not assigned a throughput number. Its capacity must be measured by `pnpm test:load` before making any local claim.
+The two-loop local configuration has no general throughput claim. The measured local load result is documented in `QC_REPORT.md`; production capacity requires representative provider latency and MongoDB measurements.
 
 ## MongoDB data and indexes
 

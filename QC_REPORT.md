@@ -48,7 +48,7 @@ These are one local-machine measurement, not a production capacity claim. The dr
 3. **A provider failure could alter the projection or retry forever.** Unit verification passed all five provider-processor cases, including immediate `422` terminal failure, third-attempt retry exhaustion, increasing retry backoff, and stale work skipping provider verification. The clean 20-request demo also passed its fixture-driven failure and retry cases while ending with only five expected jobs.
 4. **Documentation could promise behavior different from the code.** This report was compared with `scripts/load-test.ts`, which defaults `LOAD_DRAIN_TIMEOUT_MS` to 600,000 ms and settles only at 1,000 terminal events, 900 projections, and correct ordered versions. README's cursor description matches `job-repository.ts`: `updatedAt DESC`, then `sourceId ASC`, then `externalJobId ASC`; its provider maximum-attempt claim matches `environment.ts` default of 3 and the processor unit test. No throughput figure in `SCALE.md` is presented as this laptop result.
 
-## Submission status
+## Delivery context
 
 - Reported focused time: approximately **7 hours**, including design review, implementation, Docker/environment troubleshooting, and final QC.
-- Git commit SHA is pending until the planned commits are created. Add the final SHA after Commit 4.
+- The submitted revision is identified by the repository Git history and the commit SHA supplied with the submission.
