@@ -1,0 +1,44 @@
+{
+  "name": "artha-job-feed-ingestion",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Reliable job-feed ingestion service for the Artha.link engineering assignment.",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/main.js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run test",
+    "test:unit": "vitest run test/unit",
+    "test:integration": "vitest run test/integration",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck",
+    "demo": "tsx scripts/demo.ts",
+    "test:load": "tsx scripts/load-test.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "fastify": "^5.6.2",
+    "mongodb": "^6.20.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^22.18.12",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.0",
+    "vitest": "^4.0.8"
+  }
+}
